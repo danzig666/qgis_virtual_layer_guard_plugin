@@ -1,0 +1,24 @@
+[general]
+name=Virtual Layer Guard
+name[hu]=Virtuális rétegőr
+qgisMinimumVersion=3.30
+qgisMaximumVersion=4.99
+supportsQt6=True
+description=Prevents QGIS from silently dropping virtual (and other dependent) layers from the project file.
+description[hu]=Megakadályozza, hogy a QGIS csendben kihagyja a projektfájlból a virtuális (és más függő) rétegeket.
+about=If any layer of a project depends on a layer ID that no longer exists (for example after deleting or replacing a layer, changing data sources, or moving layers between projects), QGIS skips EVERY layer that has a dependency while loading the project, without an error message. Virtual layers always have dependencies. The skipped layers keep their name in the Layers panel, and the next save removes their definition from the project file for good. This plugin removes dependencies on missing layers on every save, keeps definitions QGIS would drop, restores skipped layers automatically when a project is opened, keeps a copy of every virtual layer definition for later recovery, and warns when removing a layer or changing its data source breaks a virtual layer. The user interface is English or Hungarian, following the QGIS language.
+about[hu]=Ha a projekt bármelyik rétege olyan layer ID-tól függ, amely már nem létezik (például réteg törlése vagy cseréje, adatforrás-csere vagy projektek közti rétegmozgatás után), a QGIS betöltéskor MINDEN függőséggel rendelkező réteget kihagy, hibaüzenet nélkül. A virtuális rétegeknek mindig van függőségük. A kihagyott rétegek neve megmarad a Rétegek panelen, a következő mentés viszont végleg törli a definíciójukat a projektfájlból. A plugin minden mentéskor eltávolítja a nem létező rétegekre mutató függőségeket, megtartja azokat a definíciókat, amelyeket a QGIS kihagyna, projekt megnyitásakor automatikusan visszaállítja a kihagyott rétegeket, minden virtuális rétegdefinícióról másolatot őriz a későbbi visszaállításhoz, és figyelmeztet, ha egy réteg törlése vagy adatforrásának cseréje elront egy virtuális réteget. A felület angol vagy magyar, a QGIS nyelvétől függően.
+version=0.1.0
+author=danzig666
+email=
+homepage=
+repository=
+tracker=
+icon=icon.png
+category=Plugins
+tags=virtual layer,dependency,project,layer tree,data source,recovery
+experimental=True
+deprecated=False
+hasProcessingProvider=False
+changelog=0.1.0
+    - First version
