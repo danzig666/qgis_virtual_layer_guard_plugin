@@ -69,7 +69,7 @@ This patch has not been compiled or tested against the QGIS source tree.
 
 ### Why it is published here
 
-QGIS does not accept bug reports, pull requests, comments or reviews made with AI, LLM or agent assistance ([QEP 408](https://github.com/qgis/QGIS-Enhancement-Proposals/blob/master/qep-408-ai-tool-policy.md)). This analysis was made with an AI assistant, so it is documented here instead of being reported to the QGIS repository. Until QGIS changes this code, this plugin works around the bug: it removes dangling dependencies on save and restores skipped layers on load.
+QGIS does not allow AI-, LLM- or agent-assisted code contributions to its repository, and contributors who make them can be sanctioned ([QEP 408](https://github.com/qgis/QGIS-Enhancement-Proposals/blob/master/qep-408-ai-tool-policy.md), version 2.0, 2026-09-24). The analysis and the proposed patch above were made with an AI assistant, so they are published here instead of being submitted to QGIS. Until QGIS changes this code, this plugin works around the bug: it removes dangling dependencies on save and restores skipped layers on load.
 
 ## License
 

@@ -37,10 +37,11 @@ rétegeket tölti be.
   és újratöltés előtt üríteni a `mSortedLayerNodes` listát. Ez a javítás nincs
   lefordítva és tesztelve.
 
-A QGIS nem fogad el AI-val, LLM-mel vagy ágenssel segített hibajegyet, PR-t,
-kommentet és review-t
-([QEP 408](https://github.com/qgis/QGIS-Enhancement-Proposals/blob/master/qep-408-ai-tool-policy.md)).
-Ez az elemzés AI segítségével készült, ezért nem a QGIS-nek jelentettük be,
+A QGIS nem enged AI-val, LLM-mel vagy ágenssel segített kódhozzájárulást a
+repójába, és az ilyen hozzájárulókat szankcionálhatja
+([QEP 408](https://github.com/qgis/QGIS-Enhancement-Proposals/blob/master/qep-408-ai-tool-policy.md),
+2.0-s verzió, 2026. 09. 24.).
+Az elemzés és a javítási javaslat AI segítségével készült, ezért nem a QGIS-nek küldtük be,
 hanem itt tesszük közzé. Részletesebben, angolul a repó
 [README.md](../README.md)-jében.
 
