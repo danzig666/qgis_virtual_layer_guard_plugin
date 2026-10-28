@@ -18,6 +18,32 @@ réteget kihagyja, hibaüzenet nélkül:
 - a **következő mentés véglegesen törli** a definíciójukat a projektfájlból
   (SQL-lekérdezés, stílus, join-ok, címkék).
 
+### A QGIS hibája
+
+A QGIS betöltés előtt függőségi sorrendbe rendezi a rétegeket
+(`QgsLayerDefinition::DependencySorter`, `src/core/qgslayerdefinition.cpp`).
+A szándék az, hogy hiányzó függőség esetén is minden réteget betöltsön. A kód
+azonban az első `<maplayer>` elemet a ciklusváltozóra mutató **hivatkozásként**
+tárolja (`const QDomElement &firstElement { layerElem };`), nem másolatként.
+Mire a hiányzó függőség kiderül, ez már üres elemre mutat, ezért a „mindent
+betöltök” ág egyetlen réteget sem vesz fel. A QGIS így csak a függőség nélküli
+rétegeket tölti be.
+
+- Reprodukálva QGIS 3.40.8, 3.44.9 és 4.2.2 alatt. A `master` ágon
+  2026-10-28-án még változatlan.
+- A `de30d7ce08` commit hozta be 2020. december 10-én, tehát nagy
+  valószínűséggel a QGIS 3.18 óta él.
+- Lehetséges javítás: másolatot tárolni (`const QDomElement firstElement = layerElem;`),
+  és újratöltés előtt üríteni a `mSortedLayerNodes` listát. Ez a javítás nincs
+  lefordítva és tesztelve.
+
+A QGIS nem fogad el AI-val, LLM-mel vagy ágenssel segített hibajegyet, PR-t,
+kommentet és review-t
+([QEP 408](https://github.com/qgis/QGIS-Enhancement-Proposals/blob/master/qep-408-ai-tool-policy.md)).
+Ez az elemzés AI segítségével készült, ezért nem a QGIS-nek jelentettük be,
+hanem itt tesszük közzé. Részletesebben, angolul a repó
+[README.md](../README.md)-jében.
+
 ## Mit csinál a plugin
 
 - **Mentéskor** törli a nem létező rétegekre mutató függőségi bejegyzéseket,
