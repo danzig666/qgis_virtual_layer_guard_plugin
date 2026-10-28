@@ -28,6 +28,10 @@ Open a project in which **one** layer has a dependency (`<layerDependencies>` in
 - The code is unchanged on `master` as of 2026-10-28.
 - It was introduced in commit `de30d7ce08` ("Further DOM loop optimizations", 2020-12-10), so it is very likely present since **QGIS 3.18**.
 
+### Proof of concept
+
+The [`demo/`](demo) folder has two small projects that differ by one dangling `<layerDependencies>` entry. With `control_works.qgs`, all 5 layers load. With `bug_demo.qgs`, only 1 loads and the 3 virtual layers are silently skipped. To try it, download [the repository ZIP](https://github.com/danzig666/qgis_virtual_layer_guard_plugin/archive/refs/heads/main.zip), keep the `demo/` files together and follow [demo/README.md](demo/README.md).
+
 ### Cause
 
 `QgsProject` sorts layers with `QgsLayerDefinition::DependencySorter` before loading them (`src/core/project/qgsproject.cpp`). The comment there states the intended behaviour: *"Missing a dependency? We still load all the layers, otherwise the project is completely broken!"*

@@ -1,0 +1,1 @@
+{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"name": "Duna"}, "geometry": {"type": "LineString", "coordinates": [[17.1, 47.9], [18.9, 47.8], [19.05, 47.5], [18.9, 46.0]]}}]}
