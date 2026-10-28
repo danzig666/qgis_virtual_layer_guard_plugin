@@ -12,6 +12,10 @@ If any layer depends on a layer ID that no longer exists, QGIS skips every layer
 
 Experimental: back up your projects before use.
 
+## Install
+
+Download `qgis_virtual_layer_guard.zip` from the [latest release](https://github.com/danzig666/qgis_virtual_layer_guard_plugin/releases/latest), then in QGIS: **Plugins → Manage and Install Plugins → Install from ZIP**.
+
 ## License
 
 GNU General Public License v2.0 or later, see [LICENSE](LICENSE).
